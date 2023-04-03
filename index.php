@@ -1,9 +1,11 @@
 <?php
 
-// session_start();
+session_start();
 
-if($_SESSION['auth'] == true){
+if (array_key_exists("auth",$_SESSION)){
+    if($_SESSION["auth"] == true){
     header("Location: events.php");
-}else {
+    }
+} else {
     header("Location: login.php");
 }

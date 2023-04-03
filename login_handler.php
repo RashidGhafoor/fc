@@ -13,7 +13,7 @@ if(empty(trim($_POST["username"]))){
 } elseif(empty(trim($_POST["password"]))){
   showError("Please enter your password.");
 } else {
-  $sql = "SELECT * FROM Users WHERE username = :username";
+  $sql = "SELECT * FROM users WHERE username = :username";
 
   $stmt = $pdo -> prepare($sql);
 
