@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once "Dao.php";
 
 $comment = $_POST['comment'];

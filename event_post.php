@@ -32,12 +32,12 @@ $result = $dao -> getPost($_GET['post_id']);
         </form>
       </div>
 
-      <?php
-        if(isset($_SESSION['message'])) {
-            echo "<div id='message'>" . $_SESSION['message'] . "</div>";
-            unset($_SESSION['message']);
-        }
-      ?>
+      <div style="color: red; margin-bottom: 20px;">
+        <?php if(isset($_SESSION['message'])) {
+            echo '<br>' . 'Error: ' . $_SESSION['message'];
+            $_SESSION['message'] = null;
+        } ?>
+      </div>
 
       <ul class="comment-list">
         <!-- <li>
