@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "Dao.php";
 
 $dao = new Dao();
@@ -9,7 +10,7 @@ $password = $_POST['password'];
 
 
 if(empty(trim($_POST["username"]))){
-  showError("Please enter username.");
+  showError("Please enter username or email.");
 } elseif(empty(trim($_POST["password"]))){
   showError("Please enter your password.");
 } else {
@@ -23,7 +24,6 @@ if(empty(trim($_POST["username"]))){
   $row = $stmt-> fetch();
 
   if ($password == $row['password']) {
-    session_start();
     $_SESSION['auth'] = true;
     $_SESSION['user_id'] = $row['id'];
     $_SESSION['user_name'] = $row['username'];

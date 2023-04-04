@@ -21,8 +21,8 @@ $result = $dao -> getPost($_GET['post_id']);
       <h3>Username</h3>
     </div> -->
     <div class="post-description">
-      <h2><?php echo $result['event_name'] ?></h2>
-      <p><?php echo $result['event_description'] ?></p>
+      <h2><?php echo htmlspecialchars($result['event_name']) ?></h2>
+      <p><?php echo htmlspecialchars($result['event_description']) ?></p>
     </div>
     <div class="post-footer">
       <div class="comment-form">
@@ -53,13 +53,12 @@ $result = $dao -> getPost($_GET['post_id']);
               <li>
               <div class="comment">
                 <img src="./images/chat-icon.png" alt="Profile Picture">
-                <p>' . $comment['comment'] . '</p>
+                <p>' . htmlspecialchars($comment['comment']) . '</p>
               </div>
               </li>';
           }
         
         ?>
-        <!-- More comments can be added dynamically using JavaScript -->
 
       </ul>
     </div>

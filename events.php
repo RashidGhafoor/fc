@@ -1,8 +1,10 @@
 <?php 
 session_start();
 
-if($_SESSION['auth'] == false){
-	header("Location: login.php");
+if (array_key_exists("auth",$_SESSION)){
+    if($_SESSION["auth"] == false){
+    header("Location: login.php");
+    }
 }
 
 include_once('header.php');
@@ -25,9 +27,9 @@ include_once('header.php');
 				echo '
 				<div class="event">
 					<h2> ' . $event["event_name"] . ' </h2>
-					<p><strong>Date:</strong> ' . $event["event_date"] . '</p>
-					<p><strong>Location:</strong>' . $event["event_location"] . '</p>
-					<p><strong>Description:</strong> '. $event['event_description'] . '</p>
+					<p><strong>Date:</strong> ' . htmlspecialchars($event["event_date"]) . '</p>
+					<p><strong>Location:</strong>' . htmlspecialchars($event["event_location"]) . '</p>
+					<p><strong>Description:</strong> '. htmlspecialchars($event['event_description']) . '</p>
 					<a href="event_post.php?post_id= ' . $event["id"] .' "><button class="discuss-btn">Discuss</button></a>
 				</div>';
 			}

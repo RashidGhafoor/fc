@@ -16,12 +16,13 @@ include_once('header.php');
 
         <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
 
-        <?php if(isset($_SESSION['message'])) {
-        echo '<br>' . 'Error: ' . $_SESSION['message'];
-        $_SESSION['message'] = null;
-        } ?>
-
     </form>
+    <div style="color: red;">
+        <?php if(isset($_SESSION['message'])) {
+            echo '<br>' . 'Error: ' . $_SESSION['message'];
+            $_SESSION['message'] = null;
+        } ?>
+    </div>
 </div>
 
 

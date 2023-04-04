@@ -11,16 +11,16 @@ include_once('header.php');
 <form action="submit_event.php" method="post">
   <h1>Post an Event</h1>
   <label for="event_name">Event Name:</label>
-  <input type="text" id="event_name" name="event_name" required>
+  <input type="text" name="event_name" required>
   
   <label for="event_date">Event Date:</label>
-  <input type="date" id="event_date" name="event_date" required>
+  <input type="date" name="event_date" required>
   
   <label for="event_location">Event Location:</label>
-  <input type="text" id="event_location" name="event_location" required>
+  <input type="text" name="event_location" required>
   
   <label for="event_description">Event Description:</label>
-  <textarea id="event_description" name="event_description" required></textarea>
+  <textarea name="event_description" required></textarea>
   
   <input type="submit" value="Submit Event">
 </form>

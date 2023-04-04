@@ -6,24 +6,25 @@ include_once('header.php');
 <div class="container">
     <h1>Signup</h1>
     <form action="signup_handler.php" method="post">
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username" placeholder="Enter username">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter username">
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" placeholder="Enter email">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter email">
 
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" placeholder="Enter password">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter password">
 
-    <input type="submit" value="Signup">
+        <input type="submit" value="Signup">
 
+        <p><a href="login.php">Login instead?</a>.</p>
+    </form>
     <div style="color: red;">
         <?php if(isset($_SESSION['message'])) {
             echo '<br>' . 'Error: ' . $_SESSION['message'];
             $_SESSION['message'] = null;
         } ?>
     </div>
-    </form>
 </div>
 
 
