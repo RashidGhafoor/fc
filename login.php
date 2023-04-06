@@ -29,12 +29,6 @@ include_once('header.php');
 
 <style>
 
-    body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    }
-
     .container {
     margin: auto;
     width: 50%;

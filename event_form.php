@@ -1,8 +1,8 @@
 <?php 
 session_start();
 
-if($_SESSION['auth'] == false){
-	header("Location: login.php");
+if(array_key_exists("auth",$_SESSION) == false){
+    header("Location: login.php");
 }
 
 include_once('header.php');

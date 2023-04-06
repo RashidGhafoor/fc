@@ -20,7 +20,7 @@ if(empty(trim($_POST["username"]))){
 
     $username = trim($_POST["username"]);
     $email = trim($_POST["email"]);
-    $password = trim($_POST["password"]);
+    $password = password_hash( trim($_POST["password"]) . "I'm salty", PASSWORD_DEFAULT);
 
     $sql = "SELECT id FROM users WHERE username = :username OR email = :email";
     

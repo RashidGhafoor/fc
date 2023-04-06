@@ -14,7 +14,7 @@ if(empty(trim($_POST["username"]))){
 } elseif(empty(trim($_POST["password"]))){
   showError("Please enter your password.");
 } else {
-  $sql = "SELECT * FROM users WHERE username = :username";
+  $sql = "SELECT * FROM users WHERE username = :username OR email = :username";
 
   $stmt = $pdo -> prepare($sql);
 
@@ -22,18 +22,19 @@ if(empty(trim($_POST["username"]))){
   $stmt-> execute();
 
   $row = $stmt-> fetch();
-
-  if ($password == $row['password']) {
-    $_SESSION['auth'] = true;
-    $_SESSION['user_id'] = $row['id'];
-    $_SESSION['user_name'] = $row['username'];
-    header("Location: events.php");
-    exit();
-  } else {
-    $_SESSION['message'] = 'Invalid Username or password';
-    header("Location: login.php");
-    exit();
-  }
+  
+if($row){
+        if (password_verify($password . "I'm salty", $row['password'])) {
+            $_SESSION['auth'] = true;
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['user_name'] = $row['username'];
+            header("Location: events.php");
+            exit();
+          }
+  } 
+$_SESSION['message'] = 'Invalid Username or password';
+header("Location: login.php");
+exit();
 }
 
 
