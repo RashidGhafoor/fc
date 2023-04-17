@@ -7,5 +7,6 @@ if (array_key_exists("auth",$_SESSION)){
     header("Location: events.php");
     }
 } else {
+    $_SESSION['current_page'] = 'login';
     header("Location: login.php");
 }

@@ -1,5 +1,7 @@
 <?php 
 session_start();
+$_SESSION['current_page'] = 'home';
+
 
 if(array_key_exists("auth",$_SESSION) == false){
     header("Location: login.php");

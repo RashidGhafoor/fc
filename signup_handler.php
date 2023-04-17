@@ -5,6 +5,8 @@ require_once "Dao.php";
 $dao = new Dao();
 $pdo = $dao -> getConnection();
 
+$_SESSION['inputs'] = $_POST;
+
 // Validate
 if(empty(trim($_POST["username"]))){
     showError("Please enter a username.");

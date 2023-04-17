@@ -13,6 +13,10 @@ $result = $dao -> getPost($_GET['post_id']);
 
 ?>
 
+<?php 
+include_once('error.php');
+?>
+
 
 <div id="post-container">
   <div class="post">
@@ -31,13 +35,6 @@ $result = $dao -> getPost($_GET['post_id']);
           <button type="submit">Post</button>
         </form>
       </div>
-
-      <div style="color: red; margin-bottom: 20px;">
-        <?php if(isset($_SESSION['message'])) {
-            echo '<br>' . 'Error: ' . $_SESSION['message'];
-            $_SESSION['message'] = null;
-        } ?>
-    </div>
 
       <ul class="comment-list">
         <!-- <li>

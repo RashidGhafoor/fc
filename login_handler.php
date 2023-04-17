@@ -8,6 +8,7 @@ $pdo = $dao -> getConnection();
 $username = $_POST['username'];
 $password = $_POST['password'];
 
+$_SESSION['inputs'] = $_POST;
 
 if(empty(trim($_POST["username"]))){
   showError("Please enter username or email.");
@@ -23,18 +24,19 @@ if(empty(trim($_POST["username"]))){
 
   $row = $stmt-> fetch();
   
-if($row){
-        if (password_verify($password . "I'm salty", $row['password'])) {
-            $_SESSION['auth'] = true;
-            $_SESSION['user_id'] = $row['id'];
-            $_SESSION['user_name'] = $row['username'];
-            header("Location: events.php");
-            exit();
-          }
-  } 
-$_SESSION['message'] = 'Invalid Username or password';
-header("Location: login.php");
-exit();
+  if($row){
+          if (password_verify($password . "I'm salty", $row['password'])) {
+              $_SESSION['auth'] = true;
+              $_SESSION['user_id'] = $row['id'];
+              $_SESSION['user_name'] = $row['username'];
+              $_SESSION['current_page'] == 'home';
+              header("Location: events.php");
+              exit();
+            }
+    } 
+  $_SESSION['message'] = 'Invalid Username or password';
+  header("Location: login.php");
+  exit();
 }
 
 

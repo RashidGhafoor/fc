@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$_SESSION['current_page'] = 'signup';
 include_once('header.php');
 ?>
 
@@ -7,25 +8,26 @@ include_once('header.php');
     <h1>Signup</h1>
     <form action="signup_handler.php" method="post">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Enter username">
+        <input type="text" id="username" name="username" placeholder="Enter username"
+        value="<?php echo isset($_SESSION['inputs']['username']) ? $_SESSION['inputs']['username'] : '' ?>">
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter email">
+        <input type="email" name="email" placeholder="Enter email"
+        value="<?php echo isset($_SESSION['inputs']['email']) ? $_SESSION['inputs']['email'] : '' ?>">
 
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter password">
+        <input type="password" name="password" placeholder="Enter password">
 
         <input type="submit" value="Signup">
 
         <p><a href="login.php">Login instead?</a>.</p>
     </form>
-    <div style="color: red;">
-        <?php if(isset($_SESSION['message'])) {
-            echo '<br>' . 'Error: ' . $_SESSION['message'];
-            $_SESSION['message'] = null;
-        } ?>
-    </div>
 </div>
+
+<?php 
+unset($_SESSION['inputs']);
+include_once('error.php');
+?>
 
 
 <style>

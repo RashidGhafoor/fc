@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$_SESSION['current_page'] = 'login';
 include_once('header.php');
 ?>
 
@@ -7,25 +8,22 @@ include_once('header.php');
     <h1>Login</h1>
     <form action="login_handler.php" method="post">
         <label for="username">Username / Email</label>
-        <input type="text" id="username" name="username" placeholder="Enter username or email">
+        <input type="text" name="username" placeholder="Enter username or email" 
+        value="<?php echo isset($_SESSION['inputs']['username']) ? $_SESSION['inputs']['username'] : '' ?>">
 
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter password">
+        <input type="password" name="password" placeholder="Enter password">
 
         <input type="submit" value="Login">
 
         <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
 
     </form>
-    <div style="color: red;">
-        <?php if(isset($_SESSION['message'])) {
-            echo '<br>' . 'Error: ' . $_SESSION['message'];
-            $_SESSION['message'] = null;
-        } ?>
-    </div>
 </div>
-
-
+<?php 
+unset($_SESSION['inputs']);
+include_once('error.php');
+?>
 
 <style>
 
