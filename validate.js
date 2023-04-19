@@ -10,8 +10,16 @@ function validateForm() {
   usermsg = document.getElementById("usermsg");
   passmsg = document.getElementById("passmsg");
 
+  console.log(/^[a-zA-Z0-9_]+$/.test(username));
+
   // username
   if (username == "") {
+    usermsg.style.visibility = "visible";
+    isValid = false;
+  } else if (/^[a-zA-Z0-9_]+$/.test(username) == false) {
+    console.log("user");
+    usermsg.innerHTML =
+      "Username can only contain letters, numbers, and underscores";
     usermsg.style.visibility = "visible";
     isValid = false;
   } else {
@@ -35,7 +43,7 @@ function validateForm() {
       emailmsg.style.visibility = "visible";
       isValid = false;
     } else {
-      usermsg.style.visibility = "hidden";
+      emailmsg.style.visibility = "hidden";
     }
   }
 

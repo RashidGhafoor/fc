@@ -10,7 +10,7 @@ include_once('header.php');
 ?>
 
 <div class="container">
-  <form action="submit_event.php" method="post">
+  <form style="max-width: 80%;" id="event_form" action="submit_event.php" method="post">
     <h1 style="color: #2c3e50; text-align:center">Post an Event</h1>
     <label for="event_name">Event Name:</label>
     <input type="text" name="event_name" required>
@@ -22,7 +22,7 @@ include_once('header.php');
     <input type="text" name="event_location" required>
     
     <label for="event_description">Event Description:</label>
-    <textarea name="event_description" required></textarea>
+    <textarea name="event_description" rows="6" required></textarea>
     
     <input type="submit" value="Submit Event">
   </form>
