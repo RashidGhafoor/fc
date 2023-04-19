@@ -3,11 +3,12 @@
 <head>
 	<title>Festive Conversations</title>
 	<link rel="stylesheet" type="text/css" href="./style/style.css">
-        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Noto+Serif&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="validate.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Noto+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>

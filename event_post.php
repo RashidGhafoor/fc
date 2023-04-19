@@ -37,12 +37,6 @@ include_once('error.php');
       </div>
 
       <ul class="comment-list">
-        <!-- <li>
-          <div class="comment">
-            <img src="./images/profile-icon.jpg" alt="Profile Picture">
-            <p>Username</p>
-          </div>
-        </li> -->
         <?php 
           $result = $dao -> getPostComments($_GET['post_id']);
           foreach($result as $comment){

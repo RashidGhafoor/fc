@@ -6,17 +6,20 @@ include_once('header.php');
 
 <div class="container">
     <h1>Signup</h1>
-    <form action="signup_handler.php" method="post">
+    <form name="form" action="signup_handler.php" onsubmit="return validateForm()" method="post">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" placeholder="Enter username"
         value="<?php echo isset($_SESSION['inputs']['username']) ? $_SESSION['inputs']['username'] : '' ?>">
+        <small id="usermsg" style="color:red; visibility: hidden;">Username is missing.</small>
 
         <label for="email">Email</label>
         <input type="email" name="email" placeholder="Enter email"
         value="<?php echo isset($_SESSION['inputs']['email']) ? $_SESSION['inputs']['email'] : '' ?>">
+        <small id="emailmsg" style="color:red; visibility: hidden;">Email is missing.</small>
 
         <label for="password">Password</label>
         <input type="password" name="password" placeholder="Enter password">
+        <small id="passmsg" style="color:red; visibility: hidden; display:block; margin-bottom: 5px">Password is missing.</small>
 
         <input type="submit" value="Signup">
 
@@ -58,7 +61,7 @@ include_once('error.php');
     input[type="password"] {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     border: none;
     border-radius: 5px;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);

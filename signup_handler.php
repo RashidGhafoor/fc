@@ -8,18 +8,11 @@ $pdo = $dao -> getConnection();
 $_SESSION['inputs'] = $_POST;
 
 // Validate
-if(empty(trim($_POST["username"]))){
-    showError("Please enter a username.");
-} elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
+if (!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
     showError("Username can only contain letters, numbers, and underscores.");
-} elseif(empty(trim($_POST["email"]))){
-    showError("Please enter an email.");
-} elseif(empty(trim($_POST["password"]))){
-    showError("Please enter a password.");
 } elseif(strlen(trim($_POST["password"])) < 6){
     showError("Password must have atleast 6 characters.");
 }else{
-
     $username = trim($_POST["username"]);
     $email = trim($_POST["email"]);
     $password = password_hash( trim($_POST["password"]) . "I'm salty", PASSWORD_DEFAULT);

@@ -10,38 +10,34 @@ $password = $_POST['password'];
 
 $_SESSION['inputs'] = $_POST;
 
-if(empty(trim($_POST["username"]))){
-  showError("Please enter username or email.");
-} elseif(empty(trim($_POST["password"]))){
-  showError("Please enter your password.");
-} else {
-  $sql = "SELECT * FROM users WHERE username = :username OR email = :username";
 
-  $stmt = $pdo -> prepare($sql);
+$sql = "SELECT * FROM users WHERE username = :username OR email = :username";
 
-  $stmt->bindParam(":username", $username);
-  $stmt-> execute();
+$stmt = $pdo -> prepare($sql);
 
-  $row = $stmt-> fetch();
-  
-  if($row){
-          if (password_verify($password . "I'm salty", $row['password'])) {
-              $_SESSION['auth'] = true;
-              $_SESSION['user_id'] = $row['id'];
-              $_SESSION['user_name'] = $row['username'];
-              $_SESSION['current_page'] == 'home';
-              header("Location: events.php");
-              exit();
-            }
-    } 
-  $_SESSION['message'] = 'Invalid Username or password';
-  header("Location: login.php");
-  exit();
-}
+$stmt->bindParam(":username", $username);
+$stmt-> execute();
+
+$row = $stmt-> fetch();
+
+if($row){
+        if (password_verify($password . "I'm salty", $row['password'])) {
+            $_SESSION['auth'] = true;
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['user_name'] = $row['username'];
+            $_SESSION['current_page'] == 'home';
+            header("Location: events.php");
+            exit();
+          }
+  } 
+$_SESSION['message'] = 'Invalid Username or password';
+header("Location: login.php");
+exit();
 
 
 
-function showError($err_message){
-  $_SESSION['message'] = $err_message;
-  header('Location: login.php');
-}
+
+// function showError($err_message){
+//   $_SESSION['message'] = $err_message;
+//   header('Location: login.php');
+// }
