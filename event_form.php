@@ -11,7 +11,7 @@ include_once('header.php');
 
 <div class="container">
   <form action="submit_event.php" method="post">
-    <h1 style="color: #2c3e50;">Post an Event</h1>
+    <h1 style="color: #2c3e50; text-align:center">Post an Event</h1>
     <label for="event_name">Event Name:</label>
     <input type="text" name="event_name" required>
     
